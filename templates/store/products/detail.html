@@ -1,0 +1,30 @@
+{% extends "../base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- Product detail template -->
+
+
+<div class="container" style="margin-top: 90px;">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
+        </div>
+        <div class="col-md-6" style="margin-top: 80px;">
+            {% if product.in_stock %}
+            <h3><span class="badge text-bg-info">In Stock</span></h3>
+            {%else%}
+            <h3><span class="badge text-bg-info">Not In Stock</span></h3>
+            {% endif %}
+            <h1 class="product-name">{{ product.title }}</h1>
+            <p class="product-description">{{ product.description }}</p>
+            <p class="product-price">Price: ${{ product.price }}/lb</p>
+            <p class="product-category">Category: {{ product.category.name }}</p>
+
+            <a href="" class="btn btn-primary add-to-cart-btn">Add to Cart</a>
+        </div>
+    </div>
+</div>
+
+{% endblock  %}

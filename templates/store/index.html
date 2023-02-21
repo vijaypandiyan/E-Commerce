@@ -1,0 +1,131 @@
+{% extends "store/base.html" %}
+{% load static %}
+
+{% block content %}
+
+    <!-- home section starts  -->
+
+
+<div class="home-container">
+
+    <section class="home" id="home">
+
+        <div class="content">
+            <h3>fresh and <span>organic</span> products for your</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam libero nostrum veniam facere tempore nisi.</p>
+            <a href="#" class="btn">shop now</a>
+        </div>
+
+    </section>
+
+</div>
+
+<!-- home section ends -->
+
+<!-- features section starts  -->
+
+<section class="features" id="features">
+
+    <h1 class="heading"> our <span>features</span></h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="{% static 'core/image/feature-img-1.png' %}" alt="">
+            <h3>fresh and organic</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt, earum!</p>
+            <a href="#" class="btn">read more</a>
+        </div>
+
+        <div class="box">
+            <img src="{% static 'core/image/feature-img-2.png' %}" alt="">
+            <h3>free delivery</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt, earum!</p>
+            <a href="#" class="btn">read more</a>
+        </div>
+
+        <div class="box">
+            <img src="{% static 'core/image/feature-img-3.png' %}" alt="">
+            <h3>easy payments</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt, earum!</p>
+            <a href="#" class="btn">read more</a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- features section ends -->
+<!-- products section starts  -->
+<section class="products" id="products">
+    <!--    <div class="album py-5 bg-light">-->
+    <!--    <div class="container">-->
+     <h1 class="heading"> our <span>products</span> </h1>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {% for product in products %}
+        <div class="col">
+
+            <div class="swiper product-slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide box">
+                        <a class="text-dark text-decoration-none"
+                    href="{{ product.get_absolute_url }}">
+                        <img src="{{product.image.url}}" alt="">
+                           </a>
+                        <h3>{{product.title}}</h3>
+                        <div class="price"> ${{product.price}}/lb</div>
+                        <div class="price"> ${{product.get_absolute_url}}/lb</div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                         <a href="{{ product.get_absolute_url }}" class="btn">View details</a>
+                        <a href="#" class="btn">add to cart</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+
+
+    </div>
+    <!--    </div>-->
+
+</section>
+
+<!-- products section Ends  -->
+
+
+
+
+<!-- categories section starts  -->
+
+<section class="categories" id="categories">
+
+    <h1 class="heading"> product <span>categories</span> </h1>
+
+    <div class="box-container">
+        {% for c in categories %}
+
+        <div class="box">
+            <img src="{% static 'core/image/cat-1.png' %}" alt="">
+            <h3>{{c.name|title}}</h3>
+            <p>upto 45% off</p>
+            <a href="#" class="btn">shop now</a>
+        </div>
+        {% endfor %}
+
+    </div>
+
+</section>
+
+<!-- categories section ends -->
+
+
+{% endblock %}
