@@ -2,7 +2,7 @@ from typing import List
 
 from django.contrib import admin
 
-from .models import Category, Product
+from .models import Category, Product, ProductImage
 
 
 @admin.register(Category)
@@ -17,3 +17,8 @@ class ProductAdmin(admin.ModelAdmin):
     list_filter = ['in_stock', 'is_active']
     list_editable = ['price', 'in_stock']
     prepopulated_fields = {'slug': ('title',)}
+
+
+@admin.register(ProductImage)
+class ProductImageAdmin(admin.ModelAdmin):
+    list_display = ('id', 'product', 'image')

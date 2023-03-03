@@ -9,10 +9,7 @@ def index(request):
     return render(request, 'store/index.html', {'products': products})
 
 
-def categories(request):
-    return {
-        'categories': Category.objects.all()
-    }
+
 
 
 def category_list(request,category_slug):
