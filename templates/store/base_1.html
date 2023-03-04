@@ -52,16 +52,9 @@
 
                         <li class="nav-item">
                             <a class="nav-link" href=" {% url 'basket:basket_summary' %}">
+
                                 <i class="fa fa-shopping-cart"></i>
-                                {% with total_qty=basket|length %}
-
-                                    {% if total_qty > 0 %}
-                                    Cart ({{ total_qty }})
-                                    {% else %}
-                                    Cart (0)
-                                    {% endif %}
-
-                                {% endwith %}
+                                    <span id = "basket-qty" class="basket-qty">{% if basket|length > 0 %} {{total_qty}} {% else %} 0 {% endif %}</span>
 
                             </a>
                         </li>
@@ -138,6 +131,11 @@
 {% block content %}
 
 {% endblock %}
+
+<!-- Footer-->
+<footer class="py-5 bg-dark">
+    <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
+</footer>
 
 <script>
 
