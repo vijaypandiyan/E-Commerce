@@ -20,4 +20,12 @@ def category_list(request,category_slug):
 
 def product_detail(request, slug):
     product = get_object_or_404(Product, slug=slug, in_stock=True)
-    return render(request, 'store/products/detail.html', {'product': product})
+    qty = request.session.get('basket', {}).get(str(product.id), 0)
+    context = {
+        'product': product,
+        'qty': qty,
+    }
+    return render(request, 'store/products/detail.html', {context})
+
+
+
