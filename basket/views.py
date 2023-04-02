@@ -8,6 +8,7 @@ def basket_summary(request):
     basket = Basket(request)
     return render(request, 'store/basket/summary.html', {'basket': basket})
 
+#add to basket
 
 def basket_add(request):
     basket = Basket(request)
